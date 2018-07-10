@@ -1,0 +1,28 @@
+<div id="header-page">
+    <div class="header-box">
+        <div class="padding"></div>
+        <div class="header-contents">
+            <div class="branding-box">
+                <div class="padding"></div>
+                <div class="logo-box" id="header-logo">
+                    NeuroEnroll
+                </div>
+                <div class="padding"></div>
+            </div>
+            <div class="padding"></div>
+            <div class="tool-box" *ngIf="sessionService.isSessionAlive()">
+                <div class="tool-item welcome-msg">
+                    <div class="padding"></div>
+                    <div id="header-username">Welcome <span class="user-name">{{sessionService.getUserName()}}</span></div>
+                    <div class="padding"></div>
+                </div>
+                <div class="tool-item logout-btn">
+                    <div class="padding"></div>
+                    <button id="header-logout-btn" (click)="logout()">Log Out</button>
+                    <div class="padding"></div>
+                </div>
+            </div>
+        </div>
+        <div class="padding"></div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+#directory-page{
+    display: flex;
+    flex-direction: row;
+}
+
+.directory-box{
+    width: 1000px;
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.directory-title-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.directory-pagination-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-list-box{
+    padding: 10px 0px;
+    
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-pagination-box{
+    display: flex;
+    flex-direction: row;
+}

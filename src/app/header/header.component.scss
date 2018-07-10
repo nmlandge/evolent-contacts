@@ -1,0 +1,24 @@
+.header-box{
+    padding: 0px 15px 0px 15px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.header-contents{
+    display: flex;
+    flex-direction: row;
+}
+
+.branding-box, .tool-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.tool-item{
+    display: flex;
+    flex-direction: column;
+
+    margin: 0px 0px 0px 10px;
+}

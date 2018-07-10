@@ -1,0 +1,39 @@
+.contact-box{
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-title-box{
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-action-box{
+    display: flex;
+    flex-direction: row;
+
+    .contact-action-item{
+        padding-left: 10px;
+    }
+}
+
+.contact-details-box{
+    padding: 10px 10px 0px 10px;
+
+    display: flex;
+    flex-direction: row;
+
+    .email{
+        flex-grow: 2;
+    }
+
+    .phone{
+        flex-grow: 1;
+    }
+
+    .status{
+        flex-grow: 1;
+    }
+}

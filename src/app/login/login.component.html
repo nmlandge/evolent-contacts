@@ -1,0 +1,59 @@
+<div id="login-page">
+    <div class="login-box">
+        <div class="branding-box">
+            <div class="padding"></div>
+            <div class="logo-box">
+                <div class="padding"></div>
+                <div>NeuroEnroll</div>
+                <div class="padding"></div>
+            </div>
+            <div class="padding"></div>
+        </div>
+        <div class="login-form-box">
+            <div class="padding"></div>
+            <div class="credential-box">
+                <div class="padding"></div>
+                <div class="form-box">
+                    <form #loginForm="ngForm" (ngSubmit)="login()">
+                        <div class="title-box" id="user-login-title">
+                            Log In
+                        </div>
+                        <div class="input-group cred-input-grp">
+                            <div class="input-field">
+                                <div class="input-control">
+                                    <input type="text" id="login-username-txt"
+                                        placeholder="Username"
+                                        [(ngModel)]="username"
+                                        name="username"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <div class="input-control">
+                                    <input type="password" id="login-password-txt"
+                                        placeholder="Password"
+                                        [(ngModel)]="password"
+                                        name="password"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-field">
+                                <div class="input-control">
+                                    <button type="submit" id="login-submit-btn"
+                                        [disabled]="!loginForm.valid">Log In</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-box error" id="login-msg-err">
+                            {{errorMessage}}
+                        </div>
+                    </form>
+                </div>
+                <div class="padding"></div>
+            </div>
+            <div class="padding"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+<div id="directory-page">
+    <div class="padding"></div>
+    <div class="directory-box">
+        <div class="directory-title-box">
+            <div class="directory-title">
+                Contacts
+            </div>
+            <div class="padding"></div>
+            <div class="directory-action">
+                <button (click)="onAddContactClicked(contactAdder)" title="Add New Contact">+</button>
+            </div>
+        </div>
+
+        <div class="contact-list-box">
+            <div *ngFor="let contact of contactPage; let i=index">
+                <contact-card 
+                    [contact]="contact"
+                    (deleted)="onContactDelete($event,i)"
+                    (edited)="onContactEdit($event,i)"></contact-card>
+            </div>
+        </div>
+
+        <div class="contact-pagination-box" *ngIf="directory">
+            <div class="padding"></div>
+            <pagination 
+                [totalItems]="directory.contacts.length"
+                [itemsPerPage]="contactsPerPage"
+                [directionLinks]="true"
+                [maxSize]="10"
+                [(ngModel)]="currentPage" 
+                (pageChanged)="onPageChange($event)"></pagination>
+            <div class="padding"></div>
+        </div>
+    </div>
+    <div class="padding"></div>
+</div>
+
+<ng-template #contactAdder>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Add New Contact</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="contactAdderModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-box">
+            <form #contactAdderForm="ngForm" (ngSubmit)="addContact(contactAdderForm)" class="contact-form-box">
+                <div class="input-group">
+                    <div class="input-field">
+                        <div class="input-control">
+                            <input type="text" id="firstname-txt"
+                                placeholder="First Name"
+                                [(ngModel)]="newContact.firstName"
+                                name="firstName"
+                                required>
+                        </div>
+                    </div>
+                    <div class="padding"></div>
+                    <div class="input-field">
+                        <div class="input-control">
+                            <input type="text" id="lastname-txt"
+                                placeholder="Last Name"
+                                [(ngModel)]="newContact.lastName"
+                                name="lastName"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <div class="input-control">
+                            <input type="text" id="email-txt"
+                                placeholder="Email ID"
+                                [(ngModel)]="newContact.email"
+                                name="email"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <div class="input-control">
+                            <input type="text" id="phone-txt"
+                                placeholder="Phone Number"
+                                [(ngModel)]="newContact.phone"
+                                name="phone"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <div class="input-control">
+                            <div class="btn-group" btnRadioGroup>
+                                <label class="btn btn-primary"
+                                    [(ngModel)]="newContact.status"
+                                    [ngModelOptions]="{standalone: true}"
+                                    btnRadio="INACTIVE" tabindex="0" role="button">Inactive</label>
+                                <label class="btn btn-primary"
+                                    [(ngModel)]="newContact.status"
+                                    [ngModelOptions]="{standalone: true}"
+                                    btnRadio="ACTIVE" tabindex="0" role="button">Active</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div class="padding"></div>
+                    <button type="submit" id="add-contact-btn"
+                        [disabled]="!contactAdderForm.valid">Add</button>
+                    <button type="submit" id="cancel-add-contact-btn"
+                        class="btn-secondary"
+                        (click)="contactAdderModalRef.hide()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>

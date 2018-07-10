@@ -1,1 +1,213 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+$height-header: 60px;
+$color-bg-light: white;
+$color-bg-dark: rgb(235, 235, 235);
+$color-txt-white: white;
+$color-txt-light: lighten($color: gray, $amount: 20);
+$color-txt-dark: black;
+$color-action-primary: rgb(101, 60, 150);
+$color-action-primary-hover: darken($color: $color-action-primary, $amount: 15);
+
+body{
+    font-family: 'Noto Sans', sans-serif;
+}
+
+input[type="text"], input[type="password"], select{
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgray;
+    border-radius: 3px;
+
+    box-sizing: border-box;
+    padding: 0.75em;
+    width: 100%;
+}
+select{
+    padding: calc(0.75em - 1px);
+}
+
+button{
+    height: 2.775em;
+    border-radius: 3px;
+    border-style: none;
+    padding: 1px 1em;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-txt-light;
+    opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color-txt-light;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $color-txt-light;
+}
+
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}
+
+input[type="text"], input[type="password"], select{
+    border-color: $color-txt-light;
+    &:focus{
+        border-color: $color-action-primary-hover;
+    }
+    &[disabled]{
+        background-color: $color-bg-dark;
+    }
+}
+
+button{
+    background-color: $color-action-primary;
+    color: $color-txt-white;
+    font-weight: bold;
+
+    &[disabled]{
+        background-color: lighten($color: $color-action-primary, $amount: 30);
+    }
+    &:hover:not([disabled]){
+        background-color: $color-action-primary-hover;
+    }
+}
+
+.form-box{
+    display: flex;
+    flex-direction: column;
+
+    .input-group{
+        display: flex;
+        flex-direction: column;
+
+        .input-field{
+            display: flex;
+            flex-direction: column;
+
+            .input-label, .input-control{
+                padding: 0em 0em 0.5em 0em;
+            }
+        }
+    }
+
+    .title-box{
+        padding: 0.5em;
+    }
+}
+
+#header-page{
+    position: fixed;
+    width: 100%;
+    height: $height-header;
+    z-index: 1000;
+
+    background-color: $color-bg-light;
+}
+#login-page, #directory-page{
+    position: absolute;
+    width: 100%;
+    top: $height-header;
+    min-height: calc(100vh - #{$height-header});
+}
+
+.padding{
+    flex-grow: 1;
+}
+
+#header-page .logo-box{
+    font-size: 16pt;
+    font-weight: bold;
+    color: $color-txt-dark;
+}
+
+#login-page{
+    background-color: $color-bg-dark;
+
+    .logo-box{
+        font-size: 26pt;
+        font-weight: 600;
+        color: $color-txt-dark;
+    }
+
+    .login-box{
+        background-color: $color-bg-dark;
+
+        .login-form-box{
+            border-radius: 5px;
+            
+            background-color: $color-bg-light;
+
+            .title-box{
+                font-size: 14pt;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+#directory-page{
+    background-color: $color-bg-dark;
+
+    .directory-title{
+        font-size: 16pt;
+        font-weight: bold;
+        color: $color-txt-dark;
+    }
+
+    .contact-box{
+        background-color: $color-bg-light;
+                
+        border-radius: 5px;
+        border: solid;
+        border-width: 1px;
+        border-color: $color-txt-light;
+    }
+
+    .contact-name-box{
+        font-size: 16pt;
+    }
+
+    .contact-action-item button{
+        height: 25px;
+        padding: 2px 7px;
+        font-size: 8pt;
+    }
+}
+
+form.contact-form-box{
+    display: flex;
+    flex-direction: column;
+
+    .input-group{
+        display: flex;
+        flex-direction: row;
+
+        .input-field{
+            padding-left: 10px;
+            flex-grow: 1;
+        }
+
+        button{
+            margin-left: 10px; 
+        }
+    }
+}
+
+.confirmation-box{
+    display: flex;
+    flex-direction: column;
+
+    .confirmation-action{
+        display: flex;
+        flex-direction: row;
+
+        button{
+            margin-left: 10px;
+        }
+    }
+}
