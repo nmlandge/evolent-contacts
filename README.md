@@ -1,7 +1,7 @@
 # EvolentContacts
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
-This project build the SPA for maintaining contacts.
+This project builds an Single Page Application for maintaining contacts.
 The current implementation relies on dummy contact list for demonstration purpose. Please read below to configure the app to consume APIs.
 
 ## Building
