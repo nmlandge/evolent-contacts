@@ -1,26 +1,27 @@
 # EvolentContacts
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project build the SPA for maintaining contacts.
+The current implementation relies on dummy contact list for demonstration purpose. Please read below to configure the app to consume APIs.
 
-## Development server
+## Building
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Development environment
 
-## Code scaffolding
+Run `npm run start` for a dev server. You will be navigated to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Production ready build
 
-## Build
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Configure API server
 
-## Running unit tests
+1. configure the API server in `proxy.conf.json` before building
+2. replace dummy Promises from `src/app/core/api.service.ts` by commented http reqests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Browser Support
+The application should run on most modern browsers that support HTML5, CSS3 and ES6.
+For best result, we recoment latest version of Chrome.
 
 ## Further help
 
